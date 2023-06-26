@@ -8,4 +8,6 @@ public class BaseTest {
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
+
+    // testing switching branches
 }
