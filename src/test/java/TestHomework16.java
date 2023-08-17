@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import java.time.Duration;
 
-public class TestHomework16 {
+public class TestHomework16 extends BaseTest {
     @Test
     public void registrationNavigation() {
 
@@ -15,9 +15,11 @@ public class TestHomework16 {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications=*");
+        options.addArguments("--disable-extensions");
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
 
         String url = "https://qa.koel.app/";
         driver.get(url);
@@ -26,7 +28,7 @@ public class TestHomework16 {
         registrationLink.click();
 
         String actualRegistrationURL = driver.getCurrentUrl();
-        String expectedRegistrationURL = "https://qa.koel.app/registration.php";
+        String expectedRegistrationURL = "https://qa.koel.app/registration";
         Assert.assertEquals(actualRegistrationURL,expectedRegistrationURL, "Wrong registration URL");
 
         driver.quit();
