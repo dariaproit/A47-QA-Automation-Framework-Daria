@@ -22,7 +22,7 @@ public class TestHomework16 {
         String url = "https://qa.koel.app/";
         driver.get(url);
 
-        WebElement registrationLink = driver.findElement(By.id("hel"));
+        WebElement registrationLink = driver.findElement(By.cssSelector("a[href='registration']"));
         registrationLink.click();
 
         String actualRegistrationURL = driver.getCurrentUrl();
@@ -32,3 +32,4 @@ public class TestHomework16 {
         driver.quit();
     }
 }
+
