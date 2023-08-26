@@ -35,7 +35,7 @@ public class LoginTests extends BaseTest {
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         loginButton.click();
 
-        WebElement avatar = driver.findElement(By.cssSelector("[class='avatar']"));
+        WebElement avatar = driver.findElement(By.cssSelector("[class='avatar']")); //or "img[class='avatar']"
         Assert.assertTrue(avatar.isDisplayed(), "Avatar icon is not displayed");
 
         driver.quit();
