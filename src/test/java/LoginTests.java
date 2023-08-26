@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-    @Test (description = "Successful Login")
-    public void SuccessfulLogin() {
+    @Test (description = "Login with valid email and password")
+    public void LoginValidEmailPassword() {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
