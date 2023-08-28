@@ -31,7 +31,7 @@ public class BaseTest {
     public void closeBrowser() {
         driver.quit();
     }
-    //HELPER METHODS:
+    //HELPER METHODS for LoginTests:
     public void navigateToPage() {
         String loginUrl = "https://qa.koel.app/";
         driver.get(loginUrl);
@@ -52,5 +52,15 @@ public class BaseTest {
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
         loginButton.click();
     }
+    //HELPER METHOD for Successful Login to Koel:
+    public void loginToKoel () {
+        navigateToPage();
+        provideEmail("demo@class.com");
+        providePassword("te$t$tudent");
+        clickSubmit();
+    }
+
+    //HELPER METHOD for ProfileTests:
+
 
 }
