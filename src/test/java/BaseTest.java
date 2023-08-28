@@ -1,18 +1,18 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import java.time.Duration;
+
 
 public class BaseTest {
     public WebDriver driver = null;
-    public String loginUrl = "https://qa.koel.app/";
-
     @BeforeSuite
     void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -32,6 +32,7 @@ public class BaseTest {
         driver.quit();
     }
     //HELPER METHODS for LoginTests:
+    public String loginUrl = "https://qa.koel.app/";
     public void navigateToPage() {
         String loginUrl = "https://qa.koel.app/";
         driver.get(loginUrl);
@@ -59,8 +60,29 @@ public class BaseTest {
         providePassword("te$t$tudent");
         clickSubmit();
     }
-
     //HELPER METHOD for ProfileTests:
+    public void clickAvatar () {
+        WebElement avatar = driver.findElement(By.cssSelector("[class='avatar']"));
+        avatar.click();
+    }
+    public void provideCurrentPassword () {
+        WebElement currentPassword = driver.findElement(By.cssSelector("input[type='password']"));
+        currentPassword.click();
+        currentPassword.clear();
+        currentPassword.sendKeys("te$t$tudent");
+    }
 
-
+    public String generateRandomName () {
+        return RandomStringUtils.randomAlphabetic(5,10);
+    }
+    public void provideProfileName (String randomName) {
+        WebElement profileName = driver.findElement(By.cssSelector("input[name='name']"));
+        profileName.click();
+        profileName.clear();
+        profileName.sendKeys(randomName);
+    }
+    public void clickSaveProfile () {
+        WebElement saveProfile = driver.findElement(By.cssSelector("button[class='btn-submit']"));
+        saveProfile.click();
+    }
 }
