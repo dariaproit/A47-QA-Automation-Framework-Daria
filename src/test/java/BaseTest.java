@@ -9,7 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import java.time.Duration;
-
+import java.lang.InterruptedException;
 
 public class BaseTest {
     public WebDriver driver = null;
@@ -54,13 +54,14 @@ public class BaseTest {
         loginButton.click();
     }
     //HELPER METHOD for Successful Login to Koel:
-    public void loginToKoel () {
+    public void loginToKoel() throws InterruptedException {
         navigateToPage();
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickSubmit();
+        Thread.sleep(2000);
     }
-    //HELPER METHOD for ProfileTests:
+    //HELPER METHODS for ProfileTests:
     public void clickAvatar () {
         WebElement avatar = driver.findElement(By.cssSelector("[class='avatar']"));
         avatar.click();
@@ -71,7 +72,6 @@ public class BaseTest {
         currentPassword.clear();
         currentPassword.sendKeys("te$t$tudent");
     }
-
     public String generateRandomName () {
         return RandomStringUtils.randomAlphabetic(5,10);
     }
@@ -85,4 +85,40 @@ public class BaseTest {
         WebElement saveProfile = driver.findElement(By.cssSelector("button[class='btn-submit']"));
         saveProfile.click();
     }
+
+    //HELPER METHODS for Search Songs
+    public void searchSong(String song) throws InterruptedException {
+    WebElement searchBar = driver.findElement(By.cssSelector("input[type='search']"));
+    searchBar.click();
+    searchBar.clear();
+    searchBar.sendKeys(song);
+    Thread.sleep(2000);
+    }
+    public void clickViewAllSearchedSongs() throws InterruptedException {
+        WebElement viewAllSearchedSongs = driver.findElement(By.cssSelector("button[data-test='view-all-songs-btn']"));
+        viewAllSearchedSongs.click();
+        Thread.sleep(2000);
+    }
+    public void pickFirstSong() throws InterruptedException {
+        WebElement firstSong = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//tr[@class='song-item'][1]"));
+        firstSong.click();
+        Thread.sleep(2000);
+    }
+    public void clickAddToButton() throws InterruptedException{
+        WebElement addToButton = driver.findElement(By.cssSelector("button[class='btn-add-to']"));
+        addToButton.click();
+        Thread.sleep(2000);
+    }
+        public void chooseUniquePlaylist() throws InterruptedException{
+        WebElement uniquePlaylist = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Unique Playlist')]"));
+        uniquePlaylist.click();
+        Thread.sleep(1000);
+    }
+
+    public String getActualSongAddedMessage() {
+        WebElement actualSongAddedMessage = driver.findElement(By.cssSelector("div[class='success show']"));
+        return actualSongAddedMessage.getText();
+    }
+
+
 }
