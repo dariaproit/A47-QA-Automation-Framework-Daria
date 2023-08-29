@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Koel App Tests">
+<suite name="TestNG">
+
     <test name="Basic Koel Tests" preserve-order="false">
         <classes>
             <class name="BaseTest"/>
@@ -32,3 +33,4 @@
         </classes>
     </test>
 </suite>
+

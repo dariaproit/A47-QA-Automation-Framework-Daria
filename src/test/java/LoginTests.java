@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test (description = "Login with not existing email")
-    public void loginNotExistingEmail() {
+    public void loginNotExistingEmail () {
 
         navigateToPage();
         provideEmail("NotExistingEmail@gmail.com");
