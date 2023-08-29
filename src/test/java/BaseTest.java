@@ -120,5 +120,19 @@ public class BaseTest {
         return actualSongAddedMessage.getText();
     }
 
+    // HELPER METHOD for playing songs
+    public void clickPlay() {
+        WebElement playButton = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
+        clickPlayNext();
+        playButton.click();
+    }
+    public void clickPlayNext() {
+        WebElement playNextButton = driver.findElement(By.cssSelector("[data-testid='play-next-btn']"));
+        playNextButton.click();
+    }
+    public boolean isSongPlaying() {
+        WebElement songBars = driver.findElement(By.cssSelector("[alt='Sound bars']"));
+        return songBars.isDisplayed();
+    }
 
 }

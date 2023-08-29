@@ -30,6 +30,11 @@
                     <include name="addSongToPlaylist"/>
                 </methods>
             </class>
+            <class name="TestHomework18">
+                <methods>
+                    <include name="playSong"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
