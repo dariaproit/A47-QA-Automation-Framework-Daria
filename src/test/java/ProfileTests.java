@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.lang.InterruptedException;
 public class ProfileTests extends BaseTest {
     @Test(description = "Change Profile Name")
-    public void ChangeProfileName() throws InterruptedException {
+    public void changeProfileName() throws InterruptedException {
 
         loginToKoel();
         clickAvatar();

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
     @Test (description = "Login with valid email and password")
-    public void LoginValidEmailPassword() {
+    public void loginValidEmailPassword() {
 
         navigateToPage();
         provideEmail("demo@class.com");
@@ -16,7 +16,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test (description = "Login with not existing email")
-    public void LoginNotExistingEmail() {
+    public void loginNotExistingEmail() {
 
         navigateToPage();
         provideEmail("NotExistingEmail@gmail.com");
@@ -28,7 +28,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
     }
     @Test (description = "Login with empty password")
-    public void LoginEmptyEmailPasswordTest() {
+    public void loginEmptyEmailPasswordTest() {
 
         navigateToPage();
         provideEmail("demo@class.com");
@@ -40,7 +40,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
     }
     @Test (description = "Login with empty email and password")
-    public void LoginEmptyEmailPassword() {
+    public void loginEmptyEmailPassword() {
 
         navigateToPage();
         provideEmail("");
@@ -53,7 +53,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test (description = "Login with incorrect password")
-    public void LoginIncorrectPassword() {
+    public void loginIncorrectPassword() {
 
         String loginUrl = "https://qa.koel.app/";
         driver.get(loginUrl);
