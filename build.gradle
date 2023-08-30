@@ -20,11 +20,10 @@ test {
     useTestNG() {
         suites "src/test/resources/Homework18.xml"
     }
-
+}
 //task regression(type: Test) {
 //        useTestNG() {
 //            suites "src/test/resources/Smoke.xml"
-//        }
-//    }
+//      }
+//}
 
-}

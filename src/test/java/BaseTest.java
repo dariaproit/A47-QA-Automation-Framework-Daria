@@ -123,14 +123,15 @@ public class BaseTest {
     // HELPER METHOD for playing songs
     public void clickPlay() {
         WebElement playButton = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
-        clickPlayNext();
+        clickPlayNext(); // to temporarily fix element overpowering bug
         playButton.click();
     }
     public void clickPlayNext() {
         WebElement playNextButton = driver.findElement(By.cssSelector("[data-testid='play-next-btn']"));
         playNextButton.click();
     }
-    public boolean isSongPlaying() {
+    public boolean isSongPlaying ()throws InterruptedException {
+        Thread.sleep(2000); // to wait for the sound bars to be visibale
         WebElement songBars = driver.findElement(By.cssSelector("[alt='Sound bars']"));
         return songBars.isDisplayed();
     }
